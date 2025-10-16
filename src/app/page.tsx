@@ -197,10 +197,38 @@ export default function Home() {
       {/* ...rest of your sections unchanged, but follow the same pattern when adding images ... */}
 
       {/* Get Involved Section */}
+      {/* Impact Section */}
+      <section id="impact" className="py-10 space-y-10">
+        <header>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Environmental Impact</h1>
+          <p className="mt-3 text-foreground/80 max-w-[70ch]">Zero water contamination. No fracking. No radiation. No mining tailings.</p>
+        </header>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="rounded-lg border border-foreground/15 p-4">
+            <div className="text-2xl font-semibold">600M cars</div>
+            <div className="text-xs text-foreground/70">Removed from the road (equivalent)</div>
+          </div>
+          <div className="rounded-lg border border-foreground/15 p-4">
+            <div className="text-2xl font-semibold">50B trees</div>
+            <div className="text-xs text-foreground/70">Planting equivalent</div>
+          </div>
+          <div className="rounded-lg border border-foreground/15 p-4">
+            <div className="text-2xl font-semibold">0 emissions</div>
+            <div className="text-xs text-foreground/70">Closed‑loop system</div>
+          </div>
+        </div>
+
+        <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
+          <Image src="/a-new-era-of-energy.png" alt="Environmental impact" width={700} height={250} className="w-full h-auto" />
+        </div>
+      </section>
+
+      {/* Get Involved Section */}
       <section id="get-involved" className="py-10 space-y-10">
         <header>
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Get Involved</h1>
-          <p className="mt-3 text-foreground/80 max-w-[70ch]">Governments, investors, and scientists: partner with CoreVolt™ to accelerate zero-emission baseload power.</p>
+          <p className="mt-3 text-foreground/80 max-w-[70ch]">Governments, investors, and scientists: partner with CoreVolt™ to accelerate zero‑emission baseload power.</p>
         </header>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -211,7 +239,7 @@ export default function Home() {
               <li>Carbon credit programs</li>
             </ul>
             <div className="flex gap-2 pt-2">
-              <LinkButton href="#contact" variant="secondary" size="sm">Schedule a Call</LinkButton>
+              <LinkButton href="/contact" variant="secondary" size="sm">Schedule a Call</LinkButton>
             </div>
           </div>
 
@@ -222,8 +250,7 @@ export default function Home() {
               <li>Equity funding opportunities</li>
             </ul>
             <div className="flex gap-2 pt-2">
-              <LinkButton href="#contact" variant="secondary" size="sm">Download Pitch Deck</LinkButton>
-              <LinkButton href="#contact" variant="primary" size="sm">Schedule</LinkButton>
+              <LinkButton href="/contact" variant="primary" size="sm">Schedule</LinkButton>
             </div>
           </div>
 
@@ -234,13 +261,97 @@ export default function Home() {
               <li>Materials & durability R&D</li>
             </ul>
             <div className="flex gap-2 pt-2">
-              <LinkButton href="#contact" variant="primary" size="sm">Apply</LinkButton>
+              <LinkButton href="/contact" variant="primary" size="sm">Apply</LinkButton>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ, Contact, etc. (left unchanged) */}
+      {/* FAQ Section */}
+      <section id="faq" className="py-10 space-y-10">
+        <header>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Frequently Asked Questions</h1>
+          <p className="mt-3 text-foreground/80 max-w-[70ch]">Common questions about CoreVolt™ technology, safety, and deployment.</p>
+        </header>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="space-y-6">
+            <div className="rounded-lg border border-foreground/15 p-6">
+              <h3 className="text-lg font-semibold mb-3">How deep do you drill?</h3>
+              <p className="text-foreground/80">3–8 miles, depending on crust thickness. Our PyraPipe™ system is designed to reach magma chambers safely and efficiently.</p>
+            </div>
+
+            <div className="rounded-lg border border-foreground/15 p-6">
+              <h3 className="text-lg font-semibold mb-3">Is this safe near population centers?</h3>
+              <p className="text-foreground/80">Yes. Fully sealed, no emissions, seismic-buffered. Our closed-loop system ensures zero environmental impact and maximum safety.</p>
+            </div>
+
+            <div className="rounded-lg border border-foreground/15 p-6">
+              <h3 className="text-lg font-semibold mb-3">What powers the turbine?</h3>
+              <p className="text-foreground/80">Superheated fluid (CO₂ or water) converted to mechanical energy. The CoreVolt Loop uses supercritical fluids for maximum efficiency.</p>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="rounded-lg border border-foreground/15 p-6">
+              <h3 className="text-lg font-semibold mb-3">Is CoreVolt available for licensing?</h3>
+              <p className="text-foreground/80">Yes. We offer national and regional rights for PyraPipe™ technology and CoreVolt systems worldwide.</p>
+            </div>
+
+            <div className="rounded-lg border border-foreground/15 p-6">
+              <h3 className="text-lg font-semibold mb-3">What's the build timeline?</h3>
+              <p className="text-foreground/80">12–18 months per station, significantly faster than nuclear (10+ years) with modular, scalable deployment.</p>
+            </div>
+
+            <div className="rounded-lg border border-foreground/15 p-6">
+              <h3 className="text-lg font-semibold mb-3">How does it compare to traditional geothermal?</h3>
+              <p className="text-foreground/80">Traditional geothermal requires specific geological conditions. CoreVolt works anywhere magma is near the crust (700+ global sites).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-10 space-y-10">
+        <header>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Contact Us</h1>
+          <p className="mt-3 text-foreground/80 max-w-[70ch]">Get in touch with our team to learn more about CoreVolt™ and partnership opportunities.</p>
+        </header>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold">Get in Touch</h2>
+            <div className="space-y-2">
+              <p className="text-foreground/80">Email: hello@corevolt.energy</p>
+              <p className="text-foreground/80">Phone: (555) 555-CORE</p>
+              <p className="text-foreground/80">Address: 123 Energy Street, Tech City, TC 12345</p>
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold">Partnership Inquiries</h2>
+            <div className="space-y-2">
+              <p className="text-foreground/80">For government partnerships: gov@corevolt.energy</p>
+              <p className="text-foreground/80">For investment opportunities: invest@corevolt.energy</p>
+              <p className="text-foreground/80">For scientific collaboration: research@corevolt.energy</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="rounded-lg border border-foreground/15 p-4 text-center">
+            <h3 className="font-semibold mb-2">Careers</h3>
+            <p className="text-sm text-foreground/80">Join our mission to power the world</p>
+          </div>
+          <div className="rounded-lg border border-foreground/15 p-4 text-center">
+            <h3 className="font-semibold mb-2">Press Kit</h3>
+            <p className="text-sm text-foreground/80">Media resources and assets</p>
+          </div>
+          <div className="rounded-lg border border-foreground/15 p-4 text-center">
+            <h3 className="font-semibold mb-2">Media Assets</h3>
+            <p className="text-sm text-foreground/80">High-res images and videos</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
