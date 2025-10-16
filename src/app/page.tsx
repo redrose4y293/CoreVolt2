@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { LinkButton } from "@/components/Button";
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 export default function Home() {
   return (
     <div className="space-y-20 relative">
