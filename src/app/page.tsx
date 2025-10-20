@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { LinkButton } from "@/components/Button";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+
 export default function Home() {
   return (
     <div className="space-y-20 relative">
@@ -22,7 +22,7 @@ export default function Home() {
           <div className="absolute top-1/2 right-0 w-full h-1 bg-gradient-to-l from-transparent via-[var(--grid-teal)] to-transparent animate-energy-flow" style={{animationDelay: '1s'}}></div>
           <div className="absolute bottom-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--solar-gold)] to-transparent animate-energy-flow" style={{animationDelay: '2s'}}></div>
         </div>
-        
+
         <div className="grid gap-8 items-center md:grid-cols-2 relative z-10">
           <div className="space-y-5 animate-fade-in-left">
             <h1 className="text-4xl/tight md:text-5xl/tight font-semibold tracking-tight">
@@ -51,45 +51,32 @@ export default function Home() {
             </div>
           </div>
 
-          {/* HERO IMAGE: equal height and centered with text */}
-          <div className="relative w-full rounded-xl overflow-hidden bg-black/5 animate-fade-in-right flex items-center justify-center">
-            <div className="relative w-full h-64 md:h-96">
-              <Image
-                src="/earths-internal-power.png"
-                alt="Earth internal power"
-                fill
-                style={{ objectFit: "contain" }}
-                priority
-              />
-            </div>
+          {/* keep layout intact: constrain only the image itself so grid stays the same */}
+          <div className="relative w-full overflow-hidden rounded-xl bg-black/5 animate-fade-in-right">
+            <Image
+              src="/earths-internal-power.png"
+              alt="Earth internal power"
+              width={600}
+              height={400}
+              priority
+              className="w-full h-auto max-w-md mx-auto animate-earth-pulse"
+            />
+            {/* Lava glow overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--lava)]/20 via-transparent to-transparent animate-lava-glow"></div>
+          </div>
+        </div>
+      </section>
 
-            {/* Lava glow overlay (kept separate so it doesn't change sizing) */}
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[var(--lava)]/20 via-transparent to-transparent animate-lava-glow"></div>
-          </div>
-        </div>
-      </section>
-          {/* Client Visuals Section */}
-      <section id="client-visuals" className="py-10 space-y-6">
-        <div className="grid gap-1 md:grid-cols-2">
-          <div className="relative w-full overflow-hidden rounded-xl bg-black/5">
-            <Image src="/corevolt-magma-giant-windfarm.jpg" alt="CoreVolt magma giant among wind turbines" width={840} height={900} className="w-840  max-h-150 md:max-h-[28rem] object-contain" />
-          </div>
-          <div className="relative w-full overflow-hidden rounded-xl bg-black/5">
-            <Image src="/corevolt-magma-giant-solar.jpg" alt="CoreVolt magma giant with solar panels at sunset" width={840} height={900} className="w-840 max-h-150 md:max-h-[28rem] object-contain" />
-          </div>
-        </div>
-        <p className="text-center text-base md:text-lg font-medium text-foreground/90">The days of wasteful energy spending are over.</p>
-      </section>
       {/* Problem Section */}
       <section id="problem" className="py-10 space-y-10 relative">
         {/* Section Background */}
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--magma-red)]/5 via-transparent to-[var(--magma-red)]/5 rounded-2xl"></div>
         <header className="animate-fade-in-up">
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">The World Is Running Out of Energy</h1>
-          <p className="mt-3 text-foreground/80 max-w-[70ch]">Demand is rising while baseload-capable, zero-emission power is scarce.</p>
+          <p className="mt-3 text-foreground/80 max-w-[70ch]">Demand is rising while baseload-capable, zero‑emission power is scarce.</p>
         </header>
 
-        <div className="grid gap-6 md:grid-cols-2 items-center"> {/* changed items-start -> items-center */}
+        <div className="grid gap-6 md:grid-cols-2 items-start">
           <div className="space-y-4">
             <h2 className="text-xl font-semibold">Key Challenges:</h2>
             <ul className="list-disc pl-5 text-foreground/80 space-y-2 animate-fade-in-left">
@@ -100,42 +87,69 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* PROBLEM IMAGE — matched height + centered */}
-          <div className="relative w-full rounded-xl overflow-hidden bg-black/5 animate-fade-in-right hover-lift transition-all duration-300 flex items-center justify-center">
-            <div className="relative w-full h-64 md:h-96 max-w-[520px]">
-              <Image
-                src="/the-energy-race.png"
-                alt="Energy challenge"
-                fill
-                style={{ objectFit: "contain" }}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--magma-red)]/20 via-transparent to-transparent pointer-events-none"></div>
+          <div className="relative w-full rounded-b-xl rounded-t-none overflow-hidden bg-black/5 animate-fade-in-right hover-lift transition-all duration-300 self-start md:-mt-40 -mt-18">
+            <Image
+              src="/the-energy-race.png"
+              alt="Energy challenge"
+              width={500}
+              height={300}
+              className="w-full h-auto max-w-md mx-auto"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--magma-red)]/20 via-transparent to-transparent"></div>
           </div>
         </div>
+      </section>
+
+      {/* Client Visuals Section */}
+      <section id="client-visuals" className="py-6 space-y-6">
+        <div className="grid gap-8 md:grid-cols-2 items-center bg-gradient-to-r from-[var(--basalt-light)]/50 to-[var(--steel-gray)]/30 rounded-2xl p-6 border border-[var(--lava)]/20">
+          <div className="relative w-full overflow-hidden rounded-xl bg-black/5 hover-lift transition-all duration-300">
+            <Image
+              src="/corevolt-magma-giant-solar.jpg"
+              alt="CoreVolt magma giant with solar panels at sunset"
+              width={500}
+              height={400}
+              className="w-full h-auto max-w-md mx-auto object-contain"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--solar-gold)]/20 via-transparent to-transparent"></div>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-2xl font-semibold text-[var(--lava)]">Revolutionary Energy Solution</h3>
+            <p className="text-foreground/80 text-lg leading-relaxed">
+              CoreVolt™ technology represents the future of clean energy,
+              harnessing Earth's internal power to provide sustainable,
+              24/7 baseload electricity with zero emissions.
+            </p>
+          </div>
+        </div>
+        <p className="text-center text-base md:text-lg font-medium text-foreground/90">The days of wasteful energy spending are over.</p>
       </section>
 
       {/* Solution Section */}
       <section id="solution" className="py-10 space-y-10">
         <header>
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Introducing CoreVolt™</h1>
-          <p className="mt-3 text-foreground/80 max-w-[70ch]">The only system capable of safely reaching and extracting direct lava heat to produce clean, continuous, grid-scale power.</p>
+          <p className="mt-3 text-foreground/80 max-w-[70ch]">The only system capable of safely reaching and extracting direct lava heat to produce clean, continuous, grid‑scale power.</p>
         </header>
 
         <div className="grid gap-8 md:grid-cols-2 items-start">
           <div className="space-y-2">
             <ul className="list-disc pl-5 text-foreground/80 space-y-1">
-              <li>Closed-loop, zero-emission geothermal</li>
-              <li>Powered by PyraPipe™ — modular, lava-grade pipe system</li>
+              <li>Closed‑loop, zero‑emission geothermal</li>
+              <li>Powered by PyraPipe™ — modular, lava‑grade pipe system</li>
               <li>Installable anywhere magma is near the crust (700+ global sites)</li>
               <li>Scalable, modular, decentralized: 10–20 acre plants per region</li>
             </ul>
           </div>
+
           <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
-            <div className="relative w-full h-64 md:h-72">
-              <Image src="/global-power-zero-emissions.png" alt="Zero emissions global power" fill style={{ objectFit: "contain" }} />
-            </div>
+            <Image
+              src="/global-power-zero-emissions.png"
+              alt="Zero emissions global power"
+              width={500}
+              height={300}
+              className="w-full h-auto max-w-md mx-auto"
+            />
           </div>
         </div>
       </section>
@@ -157,19 +171,29 @@ export default function Home() {
               <li>Withstands 25+ years in magma-adjacent zones</li>
             </ul>
           </div>
+
           <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
-            <div className="relative w-full h-64 md:h-72">
-              <Image src="/pyrapipe-cross-section.png" alt="PyraPipe cross section" fill style={{ objectFit: "contain" }} />
-            </div>
+            <Image
+              src="/pyrapipe-cross-section.png"
+              alt="PyraPipe cross section"
+              width={500}
+              height={300}
+              className="w-full h-auto max-w-md mx-auto"
+            />
           </div>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 items-start">
           <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
-            <div className="relative w-full h-64 md:h-72 p-3">
-              <Image src="/corevolt-energy-diagram.png" alt="CoreVolt loop diagram" fill style={{ objectFit: "contain" }} />
-            </div>
+            <Image
+              src="/corevolt-energy-diagram.png"
+              alt="CoreVolt loop diagram"
+              width={500}
+              height={300}
+              className="w-full h-auto max-w-md mx-auto p-3"
+            />
           </div>
+
           <div className="space-y-3">
             <h2 className="text-xl md:text-2xl font-semibold">CoreVolt Loop</h2>
             <ul className="list-disc pl-5 text-foreground/80 space-y-1">
@@ -182,21 +206,199 @@ export default function Home() {
 
         <div className="grid gap-8 md:grid-cols-2 items-start">
           <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
-            <div className="relative w-full h-64 md:h-72">
-              <Image src="/efficiency-uptime-graph.jpeg" alt="Efficiency and uptime graph" fill style={{ objectFit: "contain" }} />
-            </div>
+            <Image
+              src="/geothermal-plant-layout.png"
+              alt="Plant layout"
+              width={500}
+              height={300}
+              className="w-full h-auto max-w-md mx-auto"
+            />
           </div>
+
           <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
-            <div className="relative w-full h-64 md:h-72">
-              <Image src="/co2-offset-graph.jpeg" alt="CO₂ offset graph" fill style={{ objectFit: "contain" }} />
-            </div>
+            <Image
+              src="/efficiency-uptime-graph.jpeg"
+              alt="Efficiency and uptime graph"
+              width={500}
+              height={300}
+              className="w-full h-lg max-w-l mx-auto"
+            />
+          </div>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 items-start">
+          <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
+            <Image
+              src="/co2-offset-graph.jpeg"
+              alt="CO₂ offset graph"
+              width={600}
+              height={600}
+              className="w-full h-lg max-w-l mx-auto"
+            />
+          </div>
+
+          <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
+            <Image
+              src="/avverage-project-build-time-graph.jpeg"
+              alt="Average project build time"
+              width={500}
+              height={300}
+              className="w-full h-auto max-w-md mx-auto"
+            />
           </div>
         </div>
       </section>
 
-      {/* ...rest of your sections unchanged, but follow the same pattern when adding images ... */}
+      {/* Why CoreVolt Section */}
+      <section id="why-corevolt" className="py-10 space-y-10">
+        <header>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Why We're Different</h1>
+          <p className="mt-3 text-foreground/80 max-w-[70ch]">24/7 baseload power, zero emissions, and a tiny land footprint—built on direct lava access.</p>
+        </header>
 
-      {/* Get Involved Section */}
+        {/* Comparison Table */}
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse border border-foreground/20 rounded-lg">
+            <thead>
+              <tr className="bg-foreground/5">
+                <th className="border border-foreground/20 p-4 text-left font-semibold">Feature</th>
+                <th className="border border-foreground/20 p-4 text-center font-semibold">CoreVolt</th>
+                <th className="border border-foreground/20 p-4 text-center font-semibold">Solar</th>
+                <th className="border border-foreground/20 p-4 text-center font-semibold">Wind</th>
+                <th className="border border-foreground/20 p-4 text-center font-semibold">Nuclear</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-foreground/20 p-4 font-medium">24/7 Power</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+              </tr>
+              <tr>
+                <td className="border border-foreground/20 p-4 font-medium">Zero Emissions</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+              </tr>
+              <tr>
+                <td className="border border-foreground/20 p-4 font-medium">Small Land Footprint</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+              </tr>
+              <tr>
+                <td className="border border-foreground/20 p-4 font-medium">Direct Lava Access</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+              </tr>
+              <tr>
+                <td className="border border-foreground/20 p-4 font-medium">Modular Deployment</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌</td>
+              </tr>
+              <tr>
+                <td className="border border-foreground/20 p-4 font-medium">Time to Build</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅ (12–18 mo)</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-green-600">✅</td>
+                <td className="border border-foreground/20 p-4 text-center text-red-600">❌ (10+ yrs)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* Cost Comparison */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-lg border border-foreground/15 p-4 text-center">
+            <div className="text-2xl font-semibold text-green-600">$22–$32</div>
+            <div className="text-sm text-foreground/70">CoreVolt cost per MWh</div>
+          </div>
+          <div className="rounded-lg border border-foreground/15 p-4 text-center">
+            <div className="text-2xl font-semibold text-orange-600">$90–$110</div>
+            <div className="text-sm text-foreground/70">Solar + battery</div>
+          </div>
+          <div className="rounded-lg border border-foreground/15 p-4 text-center">
+            <div className="text-2xl font-semibold text-orange-600">$80–$100</div>
+            <div className="text-sm text-foreground/70">Wind</div>
+          </div>
+          <div className="rounded-lg border border-foreground/15 p-4 text-center">
+            <div className="text-2xl font-semibold text-red-600">$120–150+</div>
+            <div className="text-sm text-foreground/70">Nuclear</div>
+          </div>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 items-start">
+          <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
+            <Image src="/acres-per-mw-graph.jpeg" alt="Land use per MW" width={500} height={300} className="w-full h-auto max-w-md mx-auto" />
+          </div>
+          <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
+            <Image src="/avverage-project-build-time-graph.jpeg" alt="Average project build time" width={500} height={300} className="w-full h-auto max-w-md mx-auto" />
+          </div>
+        </div>
+      </section>
+
+      {/* Global Rollout Plan Section */}
+      <section id="rollout" className="py-10 space-y-10">
+        <header>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Global Rollout Plan</h1>
+          <p className="mt-3 text-foreground/80 max-w-[70ch]">Strategic deployment across 700+ global sites to supply up to 15% of global electricity demand.</p>
+        </header>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          <div className="rounded-lg border border-foreground/15 p-6 space-y-4">
+            <h2 className="text-xl font-semibold">Phase 1: 2025–2026</h2>
+            <ul className="list-disc pl-5 text-foreground/80 space-y-2">
+              <li>Build first station in Hawaii (Kīlauea-adjacent)</li>
+              <li>Output: 20–50 MW</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-foreground/15 p-6 space-y-4">
+            <h2 className="text-xl font-semibold">Phase 2: 2027–2030</h2>
+            <ul className="list-disc pl-5 text-foreground/80 space-y-2">
+              <li>300 Stations across:</li>
+              <li>• Iceland • Kenya • Ethiopia</li>
+              <li>• Indonesia • Alaska • Chile • Japan</li>
+            </ul>
+          </div>
+
+          <div className="rounded-lg border border-foreground/15 p-6 space-y-4">
+            <h2 className="text-xl font-semibold">Phase 3: 2030–2040</h2>
+            <ul className="list-disc pl-5 text-foreground/80 space-y-2">
+              <li>700 Stations globally</li>
+              <li>Supply up to 15% of global electricity demand</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-lg border border-foreground/15 p-6">
+            <h3 className="text-lg font-semibold mb-3">Capacity Planning</h3>
+            <ul className="list-disc pl-5 text-foreground/80 space-y-1">
+              <li>Each station: 100–200 MW</li>
+              <li>Total output: 70–140 GW (24/7)</li>
+              <li>Global CO₂ offset: 3–5 billion tons/year</li>
+            </ul>
+          </div>
+          <div className="rounded-lg border border-foreground/15 p-6">
+            <h3 className="text-lg font-semibold mb-3">Global Impact</h3>
+            <ul className="list-disc pl-5 text-foreground/80 space-y-1">
+              <li>700+ global sites identified</li>
+              <li>Modular, decentralized deployment</li>
+              <li>Safe for urban-adjacent installation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Impact Section */}
       <section id="impact" className="py-10 space-y-10">
         <header>
@@ -220,7 +422,7 @@ export default function Home() {
         </div>
 
         <div className="relative w-full rounded-xl overflow-hidden bg-black/5">
-          <Image src="/a-new-era-of-energy.png" alt="Environmental impact" width={700} height={250} className="w-full h-auto" />
+          <Image src="/a-new-era-of-energy.png" alt="Environmental impact" width={700} height={250} className="w-full h-auto max-w-md mx-auto" />
         </div>
       </section>
 
@@ -263,6 +465,28 @@ export default function Home() {
             <div className="flex gap-2 pt-2">
               <LinkButton href="/contact" variant="primary" size="sm">Apply</LinkButton>
             </div>
+          </div>
+        </div>
+
+        {/* Image Card Section */}
+        <div className="grid gap-8 md:grid-cols-2 items-center bg-gradient-to-r from-[var(--basalt-light)]/50 to-[var(--steel-gray)]/30 rounded-2xl p-6 border border-[var(--lava)]/20">
+          <div className="relative w-full overflow-hidden rounded-xl bg-black/5 hover-lift transition-all duration-300">
+            <Image
+              src="/corevolt-magma-giant-windfarm.jpg"
+              alt="CoreVolt magma giant among wind turbines"
+              width={840}
+              height={900}
+              className="w-full h-auto max-w-md mx-auto object-contain"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--grid-teal)]/20 via-transparent to-transparent"></div>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-2xl font-semibold text-[var(--lava)]">Powering the Future</h3>
+            <p className="text-foreground/80 text-lg leading-relaxed">
+              CoreVolt™ technology stands tall among traditional renewable energy sources,
+              providing 24/7 baseload power with zero emissions and minimal land footprint.
+            </p>
           </div>
         </div>
       </section>
@@ -309,6 +533,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+      
       </section>
 
       {/* Contact Section */}
