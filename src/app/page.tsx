@@ -547,9 +547,9 @@ export default function Home() {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold">Get in Touch</h2>
             <div className="space-y-2">
-              <p className="text-foreground/80">Email: hello@corevolt.energy</p>
-              <p className="text-foreground/80">Phone: (555) 555-CORE</p>
-              <p className="text-foreground/80">Address: 123 Energy Street, Tech City, TC 12345</p>
+              <p className="text-foreground/80">Email: Info@corevoltglobal.com</p>
+              <p className="text-foreground/80">Phone: 207-947-1999</p>
+              <p className="text-foreground/80">Address: PO BOX 52 Detroit, ME 04929</p>
             </div>
           </div>
           <div className="space-y-4">
