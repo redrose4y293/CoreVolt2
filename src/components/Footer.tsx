@@ -6,8 +6,8 @@ export default function Footer() {
       <div className="mx-auto max-w-[1240px] px-5 py-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
         <div className="space-y-2">
           <div className="text-sm text-foreground/70">Contact</div>
-          <div className="text-sm">hello@corevolt.energy</div>
-          <div className="text-sm">(555) 555-CORE</div>
+          <div className="text-sm">Info@corevoltglobal.com</div>
+          <div className="text-sm">207-947-1999</div>
         </div>
         <div className="space-y-2">
           <div className="text-sm text-foreground/70">Company</div>
@@ -15,7 +15,7 @@ export default function Footer() {
             <li><a href="mailto:careers@corevolt.energy" className="hover:underline">Careers</a></li>
             <li><a href="mailto:press@corevolt.energy" className="hover:underline">Press Kit</a></li>
             <li><a href="mailto:media@corevolt.energy" className="hover:underline">Media Assets</a></li>
-            <li><a href="/DOC2.pdf" target="_blank" className="hover:underline">CoreVolt Gloabal Policy</a></li>
+            <li><a href="/DOC2.pdf" target="_blank" className="hover:underline">CoreVolt Global Policy</a></li>
           </ul>
         </div>
         <div className="space-y-2">
@@ -181,6 +181,7 @@ c30 5 56 9 58 7 1 -2 -12 -20 -31 -40 -36 -40 -65 -45 -170 -31 -42 6 -46 9
     </footer>
   );
 }
+
 
 
 
